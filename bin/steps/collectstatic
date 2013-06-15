@@ -8,17 +8,14 @@ indent() {
 
 echo .
 MANAGE_FILE=$(find . -maxdepth 3 -type f -name 'manage.py' | head -1)
-MANAGE_FILE=${MANAGE_FILE:2}
+MANAGE_FILE=${MANAGE_FILE:-fakepath}
 
 echo .
-if [ -f .heroku/collectstatic_disabled ]; then
-  DISABLE_COLLECTSTATIC=1
-fi
+[ -f .heroku/collectstatic_disabled ] && DISABLE_COLLECTSTATIC=1
 echo .
 
-if [ ! "$MANAGE_FILE" ]; then
-  DISABLE_COLLECTSTATIC=1
-fi
+[ ! -f "$MANAGE_FILE" ] && DISABLE_COLLECTSTATIC=1
+
 echo .
 
 if [ ! "$DISABLE_COLLECTSTATIC" ]; then
