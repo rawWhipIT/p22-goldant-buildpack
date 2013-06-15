@@ -24,7 +24,7 @@ echo .
 if [ ! "$DISABLE_COLLECTSTATIC" ]; then
     set +e
 
-echo .
+echo inside
     # Check if collectstatic is configured properly.
     python $MANAGE_FILE collectstatic --dry-run --noinput &> /dev/null && RUN_COLLECTSTATIC=true
 
