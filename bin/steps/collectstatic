@@ -13,6 +13,10 @@ if [ -f .heroku/collectstatic_disabled ]; then
   DISABLE_COLLECTSTATIC=1
 fi
 
+if [ ! "$MANAGE_FILE" ]; then
+  DISABLE_COLLECTSTATIC=1
+fi
+
 if [ ! "$DISABLE_COLLECTSTATIC" ]; then
     set +e
 
