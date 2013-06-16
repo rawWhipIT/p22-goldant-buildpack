@@ -198,5 +198,5 @@ echo 'post cache copy'
 
 echo pre file copy
 deep-mv $BUILD_DIR $ORIG_BUILD_DIR
-deep-mv $TMP_APP_DIR $APP_DIR
+# deep-mv $TMP_APP_DIR $APP_DIR
 echo post file copy
