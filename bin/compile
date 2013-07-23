@@ -27,14 +27,14 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 # Python version. This will be used in the future to specify custom Pythons.
 DEFAULT_PYTHON_VERSION="python-2.7.4"
 PYTHON_EXE="/app/.heroku/python/bin/python"
-PIP_VERSION="1.3.1"
-DISTRIBUTE_VERSION="0.6.36"
+PIP_VERSION="1.4"
+SETUPTOOLS_VERSION="0.9.7"
 
 # Setup bpwatch
 export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
 LOGPLEX_KEY="t.b396af7f-ad75-4643-8b9e-ebb288acc624"
 export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
-BUILDPACK_VERSION=v25
+BUILDPACK_VERSION=HEAD
 
 # Support Anvil Build_IDs
 [ ! "$REQUEST_ID" ] && REQUEST_ID=$SLUG_ID
@@ -171,13 +171,13 @@ if [ "$FRESH_PYTHON" ] || [[ ! $(pip --version) == *$PIP_VERSION* ]]; then
 
   bpwatch start prepare_environment
 
-  bpwatch start install_distribute
+  bpwatch start install_setuptools
     # Prepare it for the real world
-    puts-step "Installing Distribute ($DISTRIBUTE_VERSION)"
-    cd $ROOT_DIR/vendor/distribute-$DISTRIBUTE_VERSION/
+    puts-step "Installing Setuptools ($SETUPTOOLS_VERSION)"
+    cd $ROOT_DIR/vendor/setuptools-$SETUPTOOLS_VERSION/
     python setup.py install &> /dev/null
     cd $WORKING_DIR
-  bpwatch stop install_distribute
+  bpwatch stop install_setuptools
 
   bpwatch start install_pip
     puts-step "Installing Pip ($PIP_VERSION)"
