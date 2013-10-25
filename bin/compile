@@ -28,14 +28,13 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 DEFAULT_PYTHON_VERSION="python-2.7.4"
 PYTHON_EXE="/app/.heroku/python/bin/python"
 PIP_VERSION="1.4.1"
-#DISTRIBUTE_VERSION="0.7.3"
 SETUPTOOLS_VERSION="1.1.6"
 
 # Setup bpwatch
 export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
 LOGPLEX_KEY="t.b396af7f-ad75-4643-8b9e-ebb288acc624"
 export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
-BUILDPACK_VERSION=v29
+BUILDPACK_VERSION=HEAD
 
 # Support Anvil Build_IDs
 [ ! "$REQUEST_ID" ] && REQUEST_ID=$SLUG_ID
