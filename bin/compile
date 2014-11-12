@@ -37,7 +37,8 @@ export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
 BUILDPACK_VERSION=HEAD
 
 echo "Pitch22 - GoldAnt Build Pack: PIP: $PIP_VERSION Setup Tools: $SETUPTOOLS_VERSION"
-
+echo $PIP_VERSION
+echo $SETUPTOOLS_VERSION
 # Support Anvil Build_IDs
 [ ! "$REQUEST_ID" ] && REQUEST_ID=$SLUG_ID
 
