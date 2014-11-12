@@ -36,9 +36,7 @@ LOGPLEX_KEY="t.b396af7f-ad75-4643-8b9e-ebb288acc624"
 export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
 BUILDPACK_VERSION=HEAD
 
-echo "Pitch22 - GoldAnt Build Pack: PIP: $PIP_VERSION Setup Tools: $SETUPTOOLS_VERSION"
-echo $PIP_VERSION
-echo $SETUPTOOLS_VERSION
+echo "Pitch22 - GoldAnt Build Pack: PIP: $PIP_VERSION Setup Tools: $SETUPTOOLS_VERSION" | indent
 # Support Anvil Build_IDs
 [ ! "$REQUEST_ID" ] && REQUEST_ID=$SLUG_ID
 
